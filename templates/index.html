@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Emotion Detector</title>
+    <title>Emotion Detector</title>
 </head>
-<body style="font-family: Arial; text-align:center; margin-top:50px;">
+<body>
+    <h1>Emotion Detection Web App</h1>
 
-  <h1>Emotion Detection Web App</h1>
-
-  <h2> Lets See how you are feeling today!</h1>
-
-  <h2>Upload Your Image</h2>
-
-  <form action="/predict" method="post" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="Enter your name" required><br><br>
-      <input type="file" name="file" accept="image/*" required><br><br>
-      <button type="submit">Upload & Predict</button>
-  </form>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="imagefile" required>
+        <input type="submit" value="Detect Emotion">
+    </form>
 
     {% if prediction %}
         <h2>Prediction: {{ prediction }}</h2>
         <img src="{{ image }}" width="200">
     {% endif %}
-
 </body>
 </html>
